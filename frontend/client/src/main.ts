@@ -9,6 +9,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <header>
       <h1>🎓 Guardião do Conhecimento</h1>
       <div class="auth-buttons" id="auth-buttons">
+        <button id="quick-login-btn" class="btn btn-primary">🚀 Entrar Direto</button>
         <button id="login-btn" class="btn">Entrar</button>
         <button id="register-btn" class="btn">Registrar</button>
       </div>
@@ -35,8 +36,13 @@ function updateAuthUI() {
   if (user) {
     authButtons.style.display = 'none'
     userInfo.style.display = 'block'
-    const demoText = authService.isDemoMode() ? ' (Modo Demo)' : ''
-    username.textContent = `Olá, ${user.username}!${demoText}`
+    let modeText = ''
+    if (authService.isQuickMode()) {
+      modeText = ' (Entrada Rápida)'
+    } else if (authService.isDemoMode()) {
+      modeText = ' (Modo Demo)'
+    }
+    username.textContent = `Olá, ${user.username}!${modeText}`
   } else {
     authButtons.style.display = 'block'
     userInfo.style.display = 'none'
@@ -44,6 +50,17 @@ function updateAuthUI() {
 }
 
 // Configurar eventos
+document.getElementById('quick-login-btn')?.addEventListener('click', () => {
+  try {
+    const response = authService.quickLogin()
+    updateAuthUI()
+    alert(`${response.message}\nBem-vindo(a), ${response.user.username}! 🎮`)
+  } catch (error) {
+    console.error('Erro na entrada rápida:', error)
+    alert('Erro na entrada rápida. Tente novamente.')
+  }
+})
+
 document.getElementById('login-btn')?.addEventListener('click', () => {
   const username = prompt('Digite seu nome de usuário:')
   const password = prompt('Digite sua senha:')

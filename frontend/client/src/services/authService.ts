@@ -74,6 +74,29 @@ export const authService = {
     };
   },
 
+  // Entrada rápida sem cadastro
+  quickLogin() {
+    const randomId = Math.random().toString(36).substr(2, 9);
+    const quickUser = {
+      id: `quick-user-${randomId}`,
+      username: `Jogador${randomId}`,
+      email: `jogador${randomId}@demo.com`
+    };
+    const quickToken = 'quick-token-' + Date.now();
+    
+    localStorage.setItem('token', quickToken);
+    localStorage.setItem('user', JSON.stringify(quickUser));
+    localStorage.setItem('demoMode', 'true');
+    localStorage.setItem('quickMode', 'true');
+    
+    return {
+      success: true,
+      message: 'Entrada rápida realizada com sucesso!',
+      user: quickUser,
+      token: quickToken
+    };
+  },
+
   demoRegister(data: RegisterData) {
     const demoUser = {
       id: 'demo-user-' + Date.now(),
@@ -114,5 +137,9 @@ export const authService = {
 
   isDemoMode(): boolean {
     return localStorage.getItem('demoMode') === 'true';
+  },
+
+  isQuickMode(): boolean {
+    return localStorage.getItem('quickMode') === 'true';
   }
 };
