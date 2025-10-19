@@ -66,6 +66,7 @@ shadcn/ui
 
 📂 Estrutura do Projeto / Project Structure
 knowledge-guardian/
+'''
 ├── backend/                    # API Backend
 │   ├── src/
 │   │   ├── config/            # Configurações (DB, JWT)
@@ -99,7 +100,7 @@ knowledge-guardian/
 ├── ARCHITECTURE.md             # Arquitetura técnica
 ├── README.md                   # Este arquivo
 └── LICENSE
-
+'''
 ⚙️ Instalação / Installation
 🔧 Pré-requisitos / Requirements
 
