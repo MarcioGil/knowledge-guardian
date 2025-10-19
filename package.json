@@ -1,0 +1,19 @@
+{
+  "name": "knowledge-guardian",
+  "version": "1.0.0",
+  "description": "Jogo educativo full-stack com IA e gamificação",
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend/client && npm install",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend/client && npm run dev",
+    "build:frontend": "cd frontend/client && npm run build",
+    "start": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "init-db": "cd backend && npm run init-db"
+  },
+  "keywords": ["game", "education", "ai", "phaser", "react", "node"],
+  "author": "Márcio Gil",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

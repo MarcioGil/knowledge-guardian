@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import { Op } from 'sequelize';
 import { User, PlayerProgress, Leaderboard, AIAdaptation } from '../models/index.js';
 
 export const register = async (req, res) => {
