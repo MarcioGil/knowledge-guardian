@@ -49,6 +49,30 @@ function updateAuthUI() {
   }
 }
 
+// Auto-login se não estiver logado (para facilitar demo)
+function checkAutoLogin() {
+  if (!authService.isAuthenticated()) {
+    // Fazer auto-login após 2 segundos se não houver interação
+    setTimeout(() => {
+      if (!authService.isAuthenticated()) {
+        console.log('Fazendo auto-login para demo...')
+        try {
+          const response = authService.quickLogin()
+          updateAuthUI()
+          // Mostrar mensagem discreta
+          const msg = document.createElement('div')
+          msg.innerHTML = `✅ ${response.message}<br>👋 Bem-vindo(a), ${response.user.username}! 🎮`
+          msg.style.cssText = 'position:fixed;top:20px;right:20px;background:#27ae60;color:white;padding:1rem;border-radius:8px;z-index:1000;font-size:0.9rem;box-shadow:0 4px 12px rgba(0,0,0,0.3)'
+          document.body.appendChild(msg)
+          setTimeout(() => msg.remove(), 4000)
+        } catch (error) {
+          console.error('Erro no auto-login:', error)
+        }
+      }
+    }, 2000)
+  }
+}
+
 // Configurar eventos
 document.getElementById('quick-login-btn')?.addEventListener('click', () => {
   try {
@@ -104,6 +128,7 @@ document.getElementById('logout-btn')?.addEventListener('click', () => {
 
 // Inicializar UI
 updateAuthUI()
+checkAutoLogin()
 
 // Inicializar o jogo Phaser
 const gameCanvas = document.getElementById('game-canvas')
