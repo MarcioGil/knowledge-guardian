@@ -9,9 +9,9 @@ A full-stack educational game with AI and gamification.
 🎓 Estudante de Engenharia de Software | 💼 Embaixador DIO Campus Expert
 💡 Apaixonado por tecnologia, educação e projetos que unem aprendizado e inovação.
 
-🌐 **Portfólio**: [https://marciogil.github.io/meu-portfolio_profissional/](https://marciogil.github.io/meu-portfolio_profissional/)
+🌐 **Portfólio**: [https://marciogil.github.io/curriculum-vitae/](https://marciogil.github.io/curriculum-vitae/)
 💻 **GitHub**: [https://github.com/MarcioGil](https://github.com/MarcioGil)
-🔗 **LinkedIn**: [https://www.linkedin.com/in/marciogil72](https://www.linkedin.com/in/marciogil72)
+🔗 **LinkedIn**: [www.linkedin.com/in/márcio-gil-1b7669309](www.linkedin.com/in/márcio-gil-1b7669309)
 🎮 **Deploy do Projeto**: [https://guardiaokn-5swkh3rb.manus.space](https://guardiaokn-5swkh3rb.manus.space)
 
 ## 🧠 Sobre o Projeto / About the Project
